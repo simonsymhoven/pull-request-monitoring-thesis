@@ -1,0 +1,25 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>io.jenkins.plugins</groupId>
+  <artifactId>warnings-ng</artifactId>
+  <packaging>hpi</packaging>
+  <name>Warnings Next Generation Plugin</name>
+  <version>${revision}${changelist}</version>
+
+  <properties>
+    <revision>9.2.0</revision>
+    <changelist>-SNAPSHOT</changelist>
+
+    <pull-request-monitoring.version>1.7.1</pull-request-monitoring.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>io.jenkins.plugins</groupId>
+      <artifactId>pull-request-monitoring</artifactId>
+      <version>${pull-request-monitoring.version}</version>
+      <optional>true</optional> (*@ \label{listing:pom22} @*)
+    </dependency>
+  </dependencies>
+</project>

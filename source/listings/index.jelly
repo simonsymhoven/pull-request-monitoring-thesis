@@ -1,0 +1,69 @@
+<?jelly escape-by-default='true'?>
+
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:l="/lib/layout"
+         xmlns:modals="/modals" xmlns:portlet="/portlet" xmlns:alerts="/alerts" xmlns:metadata="/metadata">
+
+    <st:header name="Content-Type" value="text/html;charset=UTF-8"/>
+
+    <l:layout title="${it.getObjectMetadataAction().get().getObjectDisplayName()}"
+              css="${resURL}/plugin/pull-request-monitoring/css/pull-request-monitoring.css">
+
+        <l:side-panel>
+
+            <st:include page="sidepanel.jelly" it="${it.run}" optional="true" />
+
+        </l:side-panel>
+
+        <l:main-panel>
+
+            <st:adjunct includes="io.jenkins.plugins.jquery3"/>
+            <st:adjunct includes="io.jenkins.plugins.select2"/> (*@ \label{listing:MonitoringDefaultActionJelly20} @*)
+            <st:adjunct includes="io.jenkins.plugins.muuri"/> (*@ \label{listing:MonitoringDefaultActionJelly21} @*)
+            <st:adjunct includes="io.jenkins.plugins.bootstrap5"/>
+
+            <h1>${it.getObjectMetadataAction().get().getObjectDisplayName()}</h1>
+
+            <metadata:metadata it="${it}"/>
+
+            <!-- The data toggle for <modals:config> -->
+            <button type="button" id="config-button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#configModal">
+
+                <i class="material-icons icon spin">&#xE8B8;</i>
+
+            </button>
+
+            <!-- The data toggle for <modals:add-portlet> -->
+            <button type="button" class="btn btn-primary" id="add-item-button" data-bs-toggle="modal" data-bs-target="#portletModal">
+
+                <i class="material-icons icon">&#xE145;</i>
+
+            </button>
+
+            <alerts:warning it="${it}"/>
+
+            <div class="grid"> (*@ \label{listing:MonitoringDefaultActionJelly44} @*)
+
+                <j:set var="portlets" value="${it.getAvailablePortlets(it.run)}"/> (*@ \label{listing:MonitoringDefaultActionJelly46} @*)
+
+                <j:forEach var="portlet" items="${portlets}"> (*@ \label{listing:MonitoringDefaultActionJelly48} @*)
+
+                    <portlet:portlet portlet="${portlet}"/> (*@ \label{listing:MonitoringDefaultActionJelly50} @*)
+
+                </j:forEach>
+
+            </div>
+
+            <!-- MODALS -->
+            <modals:config/>
+
+            <modals:add-portlet portlets="${portlets}" it="${it}"/>
+
+            <script>var run = <st:bind value="${it}"/></script> (*@ \label{listing:MonitoringDefaultActionJelly61} @*)
+            <script type="text/javascript" src="${resURL}/plugin/pull-request-monitoring/js/pull-request-monitoring.js"/> (*@ \label{listing:MonitoringDefaultActionJelly62} @*)
+
+        </l:main-panel>
+
+    </l:layout>
+
+</j:jelly>
+

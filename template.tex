@@ -1,0 +1,76 @@
+\newcommand{\Author}{Simon Symhoven}
+\newcommand{\Strasse}{Boschetsriederstra\ss{}e 59a}
+\newcommand{\Stadt}{D-81379 M\"unchen}
+\newcommand{\Email}{simon.symhoven@hm.edu}
+\newcommand{\Matrikelnummer}{49651418}
+\newcommand{\Fachsemester}{6}
+\newcommand{\Studiengang}{Wirtschaftsinformatik}
+\newcommand{\TitelArbeit}{Ein konfigurierbares und skalierbares Monitoringsystem f\"ur Delta-Metriken innerhalb des kontinuierlichen Integrationsservers Jenkins}
+\newcommand{\UntertitelArbeit}{Untertitel}
+\newcommand{\Labor}{Bachelor - Thesis}
+\newcommand{\Prof}{Prof. Dr. Ullrich Hafner}
+\newcommand{\Semester}{Sommersemester 2021}
+\newcommand{\Fachbereich}{Informatik und Mathematik}
+\newcommand{\Datum}{\today}
+\newcommand{\HRule}{\rule{\linewidth}{0.3mm}}
+
+\makeglossary
+
+
+%
+% Einbinden des Headers, hier können auch weitere Einstellungen vorgenommen werden.
+\input{source/header}
+% Beginn des Dokuments
+\begin{document}
+\selectlanguage{ngerman}
+
+% Einbinden des Deckblatts, der Eidesstattlichen Erklärung und dem Abstract
+\frontmatter
+\include{source/Titelseite}
+\include{source/content/EidesstattlicheErklaerung}
+\include{source/content/GenderErklaerung}
+\include{source/content/Abstract}
+\include{source/content/Abkuerzungsverzeichnis}
+
+% Einbinden des Inhaltsverzeichnisses
+%\todo[inline]{Inhaltsverzeichnis-Schachtelungswerte auf Standard zurücksetzen!}
+%\setcounter{secnumdepth}{4} % Schachtelungstiefe der Nummerierung von Überschriften
+%\setcounter{tocdepth}{4} % Schachtelungstiefe des Inhaltsverzeichnisses
+\tableofcontents 
+
+%Einbinden des Hauptteils
+\mainmatter
+\include{source/content/Einleitung}
+\include{source/content/VerwandteArbeiten}
+\include{source/content/Grundlagen}
+\include{source/content/Umsetzung}
+\include{source/content/Ergebnis}
+\include{source/content/Diskussionen}
+\include{source/content/Fazit}
+
+%Einbinden der Verzeichnisse
+\backmatter
+
+%Liste der Tabellenverzeichnisses
+\listoftables
+\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+
+%Einbinden des Abbildungsverzeichnisses
+\listoffigures
+\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+
+%Einbinden des Sourcecodeverzeichnisses
+\lstlistoflistings
+\addcontentsline{toc}{chapter}{Listings}
+
+% Quellenverzeichnis
+\phantomsection
+\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+\appendix
+\bibliographystyle{dinat}
+\bibliography{source/bib/references.bib}
+
+% Anhang
+%\appendix
+%\include{source/content/Danksagung}
+\end{document}

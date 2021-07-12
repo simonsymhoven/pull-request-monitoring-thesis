@@ -1,0 +1,17 @@
+stage ('Pull Request Monitoring - Dashboard Configuration') {
+    monitoring ( (*@ \label{listing:Jenkinsfile2} @*)
+        '''
+        [
+            {
+                 "id": "first-demo-portlet",
+                 "width": 400,
+                 "height": 400,
+                 "color": "#FF5733"
+            },
+            {
+                 "id": "second-demo-portlet"
+            }
+        ]
+        '''
+    )
+}
